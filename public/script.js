@@ -147,7 +147,7 @@ function displayItems(items) {
 
     let viewButton = document.createElement('button');
     viewButton.className = 'btn btn-primary';
-    viewButton.textContent = 'View Entries';
+    viewButton.textContent = 'View Sales';
 
     viewButton.onclick = function () {
       currentItemId = item['item-id'];

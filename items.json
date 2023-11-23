@@ -1,57 +1,37 @@
 [
   {
-    "item-id": 991,
-    "item-name": "Gold",
-    "item-color": "Yellow",
-    "item-description": "Good money",
+    "item-id": 1700749782350,
+    "item-name": "Vercel hosting",
+    "item-color": "blue",
+    "item-description": "Vercel is primarily focused on frontend frameworks but also supports Node.js through serverless functions. It's an excellent choice for projects that involve both a frontend and a Node.js backend. Vercel’s free tier includes basic hosting capabilities.",
     "entries": [
       {
-        "price": "400",
-        "date": 1689292800000
-      },
-      {
-        "price": "300",
-        "date": 1689465600000
-      },
-      {
-        "price": "200",
-        "date": 1698883200000
-      },
-      {
-        "price": "200",
-        "date": 1698883200000
-      },
-      {
-        "price": "300",
-        "date": 1699488000000
-      },
-      {
-        "price": "300",
-        "date": 1699488000000
-      },
-      {
-        "price": "300",
-        "date": 1699488000000
-      },
-      {
         "price": 200,
-        "date": 1700092800000
-      },
-      {
-        "price": 700,
-        "date": 1700438400000
-      },
-      {
-        "price": 400,
-        "date": 1700611200000
-      },
-      {
-        "price": 700,
         "date": 1698710400000
       },
       {
-        "price": 600,
-        "date": 1700697600000
+        "price": 400,
+        "date": 1698883200000
+      },
+      {
+        "price": 100,
+        "date": 1699056000000
+      },
+      {
+        "price": 700,
+        "date": 1699401600000
+      },
+      {
+        "price": 500,
+        "date": 1699574400000
+      },
+      {
+        "price": 700,
+        "date": 1699228800000
+      },
+      {
+        "price": 800,
+        "date": 1700179200000
       }
     ]
   }

@@ -57,6 +57,10 @@ body {
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+.card-text {
+  padding: 2px 16px;
+  margin-bottom: 10px;
+}
 .btn-primary {
   background-color: var(--main_color_darker);
   border-color: var(--main_color_darker);
@@ -129,4 +133,27 @@ body {
 .edit-button,
 .delete-button {
   margin-left: 10px;
+}
+
+.jumbotron {
+  background-color: #fff; /* Adjust the background color as needed */
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.jumbotron-header {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  height: 50px; /* Adjust as needed */
+  width: auto;
+  margin-right: 20px; /* Spacing between logo and title */
+}
+
+.jumbotron h6 {
+  margin: 0;
+  color: var(--main_color_dark);
+  /* Additional styling for the title */
 }
