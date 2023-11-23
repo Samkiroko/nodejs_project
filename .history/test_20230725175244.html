@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Item Entries</title>
+  </head>
+
+  <body>
+    <!-- Add entry modal -->
+    <div class="modal fade" id="addEntryModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Entry</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addEntryForm">
+              <div class="mb-3">
+                <label for="entryPrice" class="form-label">Price</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="entryPrice"
+                  name="entryPrice"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="entryDate" class="form-label">Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="entryDate"
+                  name="entryDate"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Add Entry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Add entry modal -->
+    <!--Add item  model -->
+    <div
+      class="modal fade"
+      id="addItemModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addItemModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addItemModalLabel">Add Item</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="addItemForm">
+              <div class="form-group">
+                <label for="itemName">Item Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="itemName"
+                  name="itemName"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="itemColor">Item Color</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="itemColor"
+                  name="itemColor"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="itemDescription">Item Description</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="itemDescription"
+                  name="itemDescription"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Add item model -->
+
+    <!-- View entries modal -->
+    <div class="modal fade" id="viewEntriesModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Entries</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="entriesModalBody">
+            <!-- Entries will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="itemContainer">
+      <!-- Item cards will be dynamically inserted here -->
+    </div>
+
+    <!-- Optionals JavaScript -->
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

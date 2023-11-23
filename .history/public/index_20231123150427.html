@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales & Moving Average Tracker</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron bg-color">
+      <h1 class="text-center mb-4">Sales & Moving Average Tracker</h1>
+    </div>
+    <div class="container">
+      <!-- add item button -->
+      <button
+        type="button"
+        class="btn btn-primary mb-4"
+        data-toggle="modal"
+        data-target="#addItemModal"
+      >
+        Add Item
+      </button>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <!--  -->
+
+            <div class="item-container">
+              <div id="itemContainer"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <canvas id="myChart"></canvas>
+            <hr />
+            <div class="row mt-5">
+              <div class="col-md-2">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#addEntryModal"
+                >
+                  Add Entry
+                </button>
+              </div>
+              <div class="col-md-10">
+                <!-- <h3 class="text-center">Entries List</h3> -->
+                <div class="item-container_entries mt-0">
+                  <div
+                    class="modal-body item-container_entries align-items-center pt-0"
+                    id="entriesModalBody"
+                  >
+                    <!-- Entries will be dynamically inserted here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden field for storing currently viewed item ID -->
+    <input type="hidden" id="currentItemId" />
+
+    <!-- adding a full width chart -->
+    <!-- START of Footer -->
+    <footer class="footer mt-auto py-3 text-center">
+      <span class="text-muted"
+        >&copy; 2023 Sales Tracker. All rights reserved.</span
+      >
+    </footer>
+    <!-- END of Footer -->
+
+    <!-- Add entry modal -->
+    <div class="modal fade" id="addEntryModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Entry</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="addEntryForm">
+              <div class="mb-3">
+                <label for="entryPrice" class="form-label">Sales</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="entryPrice"
+                  name="entryPrice"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="entryDate" class="form-label">Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="entryDate"
+                  name="entryDate"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Add Entry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- model -->
+    <div
+      class="modal fade"
+      id="addItemModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addItemModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addItemModalLabel">Add Item</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="addItemForm">
+              <div class="form-group">
+                <label for="itemName">Item Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="itemName"
+                  name="itemName"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="itemColor">Item Color</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="itemColor"
+                  name="itemColor"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="itemDescription">Item Description</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="itemDescription"
+                  name="itemDescription"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="entryPrice">Entry Sales</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="entryPrice"
+                  name="entryPrice"
+                />
+              </div>
+              <div class="form-group">
+                <label for="entryDate">Entry Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="entryDate"
+                  name="entryDate"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- end model -->
+
+    <!-- edit entries model -->
+
+    <!-- Add this to your HTML -->
+    <div id="editEntryModal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Entry</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editEntryForm">
+              <div class="form-group">
+                <label for="editEntryPrice">Sales</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="editEntryPrice"
+                  name="editEntryPrice"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="editEntryDate">Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="editEntryDate"
+                  name="editEntryDate"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end edit entries -->
+
+    <!-- Delete item modal -->
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
